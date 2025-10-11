@@ -1,0 +1,182 @@
+        -:    0:Source:Calc_Ab.c
+        -:    0:Graph:UT_Calc_Ab.gcno
+        -:    0:Data:UT_Calc_Ab.gcda
+        -:    0:Runs:6
+        -:    0:Programs:1
+        -:    1:/** ==================================================================================================================*\
+        -:    2:  @file Calc_Ab.c
+        -:    3:
+        -:    4:  @brief Implementacja kalkulatora
+        -:    5:  
+        -:    6:  Implementacja kalkukatora 4-działaniowego z pamięcią.
+        -:    7:
+        -:    8:  @see Calc_Ab.pdf
+        -:    9:\*====================================================================================================================*/
+        -:   10:
+        -:   11:/*====================================================================================================================*\
+        -:   12:    Załączenie nagłówków
+        -:   13:\*====================================================================================================================*/
+        -:   14:#include "Calc_Ab.h"
+        -:   15:#include "Lib_Calc.h"
+        -:   16:
+        -:   17:/*====================================================================================================================*\
+        -:   18:    Makra lokalne
+        -:   19:\*====================================================================================================================*/
+        -:   20:#define A_ERROR_VALUE  (0xFFFFFFFF)  /**< Wartość ignorowana w akumulatorze. Realizuje [P3] */
+        -:   21:/*====================================================================================================================*\
+        -:   22:    Typy lokalne
+        -:   23:\*====================================================================================================================*/
+        -:   24:
+        -:   25:/*====================================================================================================================*\
+        -:   26:    Zmienne globalne
+        -:   27:\*====================================================================================================================*/
+        -:   28:
+        -:   29:/*====================================================================================================================*\
+        -:   30:    Zmienne lokalne (statyczne)
+        -:   31:\*====================================================================================================================*/
+        -:   32:static sint32 akumulator;     /**< Akumulator kalkulatora [P2] */
+        -:   33:
+        -:   34:/*====================================================================================================================*\
+        -:   35:    Deklaracje funkcji lokalnych
+        -:   36:\*====================================================================================================================*/
+        -:   37:
+        -:   38:/*====================================================================================================================*\
+        -:   39:    Kod globalnych funkcji inline i makr funkcyjnych
+        -:   40:\*====================================================================================================================*/
+        -:   41:
+        -:   42:/*====================================================================================================================*\
+        -:   43:    Kod funkcji
+        -:   44:\*====================================================================================================================*/
+        -:   45:
+        -:   46:/**
+        -:   47:  @brief Zerowanie modułu
+        -:   48:
+        -:   49:  Funkcja zeruje wartość akumulatora i pamięci.
+        -:   50:  Realizuje [P9]
+        -:   51:*/
+        1:   52:void Calc_Reset(void)
+        -:   53:{
+        1:   54:    akumulator = 0L;
+        1:   55:    Lib_Calc_MemS(0L);
+        1:   56:}
+        -:   57:
+        -:   58:
+        -:   59:/**
+        -:   60: * @brief Ustawia wartość akumulatora.
+        -:   61: * @param[in] value Wartość do ustawienia w akumulatorze
+        -:   62: * @details Realizuje [P3]
+        -:   63: */
+        3:   64:void Calc_Set_A(sint32 value)
+        -:   65:{
+        3:   66:    if (akumulator != A_ERROR_VALUE) {
+        2:   67:        akumulator = value;
+        -:   68:    }
+        3:   69:}
+        -:   70:
+        -:   71:
+        -:   72:/**
+        -:   73: * @brief Odczytuje wartość z akumulatora.
+        -:   74: * @param[out] a Wskaźnik na zmienną do przechowania wartości akumulatora
+        -:   75: * @return E_OK jeśli operacja zakończona sukcesem, E_NOT_OK jeśli akumulator ma wartość błędu
+        -:   76: * @details Realizuje [P3]
+        -:   77: */
+        4:   78:Std_ReturnType Calc_Get_A(sint32* a)
+        -:   79:{
+        4:   80:    Std_ReturnType ret = E_OK;
+        4:   81:    sint32 tmp = akumulator;
+        -:   82:
+        4:   83:    if (tmp == A_ERROR_VALUE) {
+        1:   84:        ret = E_NOT_OK;
+        -:   85:    }
+        -:   86:
+        4:   87:    *a = tmp;
+        4:   88:    return ret;
+        -:   89:}
+        -:   90:
+        -:   91:
+        -:   92:/**
+        -:   93: * @brief Wykonuje operację arytmetyczną na akumulatorze i drugim argumencie.
+        -:   94: * @param[in] op Typ operacji do wykonania (dodawanie, odejmowanie, mnożenie, dzielenie)
+        -:   95: * @param[in] arg2 Drugi argument operacji
+        -:   96: * @details Realizuje [P5]
+        -:   97: */
+        9:   98:void Calc_Oper(Calc_Operation_T op, sint32 arg2)
+        -:   99:{
+        9:  100:    Std_ReturnType ret = E_OK;
+        9:  101:    sint32 result = 0L;
+        -:  102:
+        9:  103:    if (akumulator == A_ERROR_VALUE) {
+        4:  104:        ret = E_NOT_OK;
+        -:  105:    } else {
+        5:  106:        switch (op)
+        -:  107:        {
+        -:  108:        case CALC_ADD:
+        1:  109:            ret = Lib_Calc_Add(akumulator, arg2, &result);
+        1:  110:            break;
+        -:  111:        
+        -:  112:        case CALC_SUB:
+        1:  113:            ret = Lib_Calc_Sub(akumulator, arg2, &result);
+        1:  114:            break;
+        -:  115:
+        -:  116:        case CALC_MUL:  
+        1:  117:            ret = Lib_Calc_Mul(akumulator, arg2, &result);
+        1:  118:            break;
+        -:  119:
+        -:  120:        case CALC_DIV:  
+        2:  121:            ret = Lib_Calc_Div(akumulator, arg2, &result);
+        2:  122:            break;
+        -:  123:
+        -:  124:        default:
+    #####:  125:            ret = E_NOT_OK;
+    #####:  126:            break;
+        -:  127:        }
+        -:  128:    }   
+        -:  129:
+        9:  130:    if (ret == E_OK) {
+        4:  131:        akumulator = result;
+        -:  132:    } else {
+        5:  133:        akumulator = A_ERROR_VALUE;
+        -:  134:    }
+        9:  135:}
+        -:  136:
+        -:  137:
+        6:  138:void Calc_Mem(Calc_MemOp_T op)
+        -:  139:{
+        6:  140:    Std_ReturnType ret = E_OK;
+        6:  141:    sint32 result = 0L;
+        -:  142:
+        6:  143:    if (akumulator == A_ERROR_VALUE) {
+        2:  144:        ret = E_NOT_OK;
+        -:  145:    } else {
+        4:  146:        sint32 mem = Lib_Calc_MemR();
+        -:  147:        
+        4:  148:        switch (op)
+        -:  149:        {
+        -:  150:        case CALC_MEM_ADD:
+        1:  151:            ret = Lib_Calc_Add(mem, akumulator, &result);
+        1:  152:            break;
+        -:  153:        
+        -:  154:        case CALC_MEM_SUB:
+        1:  155:            ret = Lib_Calc_Sub(mem, akumulator, &result);
+        1:  156:            break;
+        -:  157:
+        -:  158:        case CALC_MEM_STO:  
+        1:  159:            result = akumulator;
+        1:  160:            break;
+        -:  161:
+        -:  162:        case CALC_MEM_ZERO:  
+        1:  163:            result = 0L;
+        1:  164:            break;
+        -:  165:
+        -:  166:        default:
+    #####:  167:            ret = E_NOT_OK;
+    #####:  168:            break;
+        -:  169:        }
+        -:  170:    }
+        -:  171:
+        6:  172:    if (ret == E_OK) {
+        4:  173:        Lib_Calc_MemS(result);
+        -:  174:    } else {
+        2:  175:        akumulator = A_ERROR_VALUE;
+        -:  176:    }
+        6:  177:}
