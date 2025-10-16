@@ -1,0 +1,73 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Compiler" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Compiler" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_TxDxM1I0R0/Compiler"/>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ArMajorVersion" type="INTEGER" value="3">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArMinorVersion" type="INTEGER" value="2">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwPatchVersion" type="INTEGER" value="9">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="198">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Release" type="STRING" value="">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="CompilerGeneral" type="IDENTIFIABLE">
+                <d:var name="IncludeCompilerCfgExtMcal" type="BOOLEAN" 
+                       value="true"/>
+                <d:var name="IncludeCompilerCfgExt" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:ctr name="CompilerCfgExtMcal" type="IDENTIFIABLE">
+                  <d:var name="CompilerCfgExtMcal" type="MULTILINE-STRING" 
+                         value="/* specific compiler symbol for MCAL &#10; * currently supported: */&#10;&#10;#if (defined _DIABDATA_C_CORTEXM_)&#10;#if (defined _DIABDATA_C_S32K14x_) /* to prevent double definition */&#10;#error _DIABDATA_C_S32K14x_ already defined&#10;#endif /* if (defined _DIABDATA_C_S32K14x_) */&#10;/** \brief compiler symbol for Windriver Diab compiler for S32K14x */&#10;#define _DIABDATA_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _GREENHILLS_C_CORTEXM_)&#10;#if (defined _GREENHILLS_C_S32K14x_) /* to prevent double definition */&#10;#error _GREENHILLS_C_S32K14x_ already defined&#10;#endif /* if (defined _GREENHILLS_C_S32K14x_) */&#10;/** \brief compiler symbol for Greenhills compiler for S32K14x */&#10;#define _GREENHILLS_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _HITECH_C_CORTEXM_)&#10;#if (defined _HITECH_C_S32K14x_) /* to prevent double definition */&#10;#error _HITECH_C_S32K14x_ already defined&#10;#endif /* if (defined _HITECH_C_S32K14x_) */&#10;/** \brief compiler symbol for HighTech gnu compiler for S32K14x */&#10;#define _HITECH_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _COSMIC_C_CORTEXM_)&#10;#if (defined _COSMIC_C_S32K14x_) /* to prevent double definition */&#10;#error _COSMIC_C_S32K14x_ already defined&#10;#endif /* if (defined _COSMIC_C_S32K14x_) */&#10;/** \brief compiler symbol for Cosmic compiler for S32K14x */&#10;#define _COSMIC_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _CODEWARRIOR_C_CORTEXM_)&#10;#if (defined _CODEWARRIOR_C_S32K14x_) /* to prevent double definition */&#10;#error _CODEWARRIOR_C_S32K14x_ already defined&#10;#endif /* if (defined _CODEWARRIOR_C_S32K14x_) */&#10;/** \brief compiler symbol for CodeWarrior compiler for S32K14x */&#10;#define _CODEWARRIOR_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _LINARO_C_CORTEXM_)&#10;#if (defined _LINARO_C_S32K14x_) /* to prevent double definition */&#10;#error _LINARO_C_S32K14x_ already defined&#10;#endif /* if (defined _LINARO_C_S32K14x_) */&#10;/** \brief compiler symbol for Linaro gnu compiler for S32K14x */&#10;#define _LINARO_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _IAR_C_CORTEXM_)&#10;#if (defined _IAR_C_S32K14x_) /* to prevent double definition */&#10;#error _IAR_C_S32K14x_ already defined&#10;#endif /* if (defined _IAR_C_S32K14x_) */&#10;/** \brief compiler symbol for IAR compiler for S32K14x */&#10;#define _IAR_C_S32K14x_ 1U&#10;#endif&#10;&#10;#if (defined _ARM_DS5_C_CORTEXM_)&#10;#if (defined _ARM_DS5_C_S32K14x_) /* to prevent double definition */&#10;#error _ARM_DS5_C_S32K14x_ already defined&#10;#endif /* if (defined _ARM_DS5_C_S32K14x_) */&#10;/** \brief compiler symbol for ARM DS5 compiler for S32K14x */&#10;#define _ARM_DS5_C_S32K14x_ 1U&#10;#endif&#10;&#10;/** \brief interrupt function */&#10;#if (defined INTERRUPT_FUNC)&#10;#error INTERRUPT_FUNC already defined&#10;#endif&#10;&#10;#ifdef _DIABDATA_C_S32K14x_&#10;#define INTERRUPT_FUNC __interrupt__&#10;#endif /* #ifdef _DIABDATA_C_S32K14x_ */&#10;&#10;#ifdef _GREENHILLS_C_S32K14x_&#10;#define INTERRUPT_FUNC __interrupt&#10;#endif /* #ifdef _GREENHILLS_C_S32K14x_ */&#10;&#10;#ifdef _HITECH_C_S32K14x_&#10;#define INTERRUPT_FUNC __attribute__((interrupt));&#10;#endif /* #ifdef _HITECH_C_S32K14x_ */&#10;&#10;#ifdef _COSMIC_C_S32K14x_&#10;#define INTERRUPT_FUNC @interrupt&#10;#endif /* #ifdef _COSMIC_C_S32K14x_ */&#10;&#10;#ifdef _CODEWARRIOR_C_S32K14x_&#10;#define INTERRUPT_FUNC __declspec(interrupt nowarn)&#10;#endif /* #ifdef _CODEWARRIOR_C_S32K14x_ */&#10;&#10;#ifdef _LINARO_C_S32K14x_&#10;#define INTERRUPT_FUNC&#10;#endif /* #ifdef _LINARO_C_S32K14x_ */&#10;&#10;#ifdef _IAR_C_S32K14x_&#10;#define INTERRUPT_FUNC&#10;#endif /* #ifdef _IAR_C_S32K14x_ */&#10;&#10;#ifdef _ARM_DS5_C_S32K14x_&#10;#define INTERRUPT_FUNC&#10;#endif /* #ifdef _ARM_DS5_C_S32K14x_ */"/>
+                </d:ctr>
+              </d:ctr>
+              <d:ctr name="PublishedInformation" type="IDENTIFIABLE">
+                <d:var name="PbcfgMSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

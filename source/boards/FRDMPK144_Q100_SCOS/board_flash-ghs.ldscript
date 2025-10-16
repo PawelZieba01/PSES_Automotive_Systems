@@ -1,0 +1,57 @@
+/* board_flash-ghs.ldscript
+ *
+ * Linker script memory definitions for Green Hills (GHS) binutils.
+ *
+ * (c) Elektrobit Automotive GmbH
+ *
+ * $Id: board_flash-ghs.ldscript 28226 2018-01-31 12:22:49Z aniv261689 $
+*/
+
+/*	Memory types and sizes for S32K144:
+ *	SRAM_L			= 0x8000;	32	KB	(Low-order, executable)
+ *	SRAM_U			= 0x7000;	28	KB	(High-order, for data)
+ *	FlexRAM			= 0x1000;	4	KB
+ *	FLSH_PROG		= 0x80000;	512	KB
+ *	FLSH_FlexNVM	= 0x10000;	64	KB
+*/
+
+/*	S32K144 memory is split into 2 regions:
+ *	0x00000000 - 0x1FFFFFFF	:	Low-order addresses (access through the code bus)
+ *	0x20000000 - 0xFFFFFFFF	:	High-order addresses (access through the system bus)
+ *	All code should be placed to the low-order addresses
+ *
+ *	SRAM_L	lies in low-order address space (SRAM_L must end at 0x1FFFFFFF)
+ *	SRAM_U	lies in high-order address space (SRAM_U must start at 0x20000000)
+ *	SRAM_L and SRAM_U are contiguous!
+*/
+
+MEMORY
+{
+	/*	Program Flash (code)*/
+	reset		: ORIGIN = 0x00000000, LENGTH = 0x100			/* reset-vector					*/
+	/*
+	 * Gap: addresses at 0x00000400 are reserved and not writable!
+	*/
+	exctable	: ORIGIN = 0x00000800, LENGTH = 0x2800			/* exception (+interrupt) table */
+	rom		  	: ORIGIN = 0x00003000, LENGTH = 0xFD000			/* the rest of FLASH memory		*/
+	ram      	: ORIGIN = 0x1FFF0000, LENGTH = 0x1EFFF			/* Low-order RAM (code-bus)	+ High-order RAM (system-bus)	*/
+}
+
+/* Definition of the 'reset_vector' section */
+SECTIONS
+{
+	// Output section reset_vector (Type RESET)
+	reset_vector  ALIGN(256) :
+	{
+		"board_reset_vector.o(.rodata)"
+		"board_reset_vector.o(.rodata.*)"
+	} > reset
+
+	/* Symbols for Memory Protection: Global RAM region */
+	__GLBL_RAM_START	= 0x1FFF0000;
+	__GLBL_RAM_END		= 0x2000EFFF;
+
+	/* Symbols for Memory Protection: Global ROM region */
+	__GLBL_ROM_START	= 0x00000000;
+	__GLBL_ROM_END		= 0x000FFFFF;
+}

@@ -1,0 +1,767 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="CanIf" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="CanIf" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/TS_TxDxM6I10R0/CanIf"/>
+              <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPostBuild">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:ctr name="CanIfDefensiveProgramming" type="IDENTIFIABLE">
+                <d:var name="CanIfDefProgEnabled" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPrecondAssertEnabled" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPostcondAssertEnabled" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfStaticAssertEnabled" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfUnreachAssertEnabled" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfInvariantAssertEnabled" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="CanIfInitCfg" type="MAP">
+                <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                <d:ctr name="CanIfInitCfg" type="IDENTIFIABLE">
+                  <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                  <d:var name="CanIfInitCfgSet" type="STRING" value="">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:lst name="CanIfInitHohCfg" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                    <d:ctr name="CanIfInitHohCfg" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      <d:ref name="CanIfInitRefCfgSet" type="REFERENCE" 
+                             value="ASPath:/Can/Can/CanConfigSet">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:ref>
+                      <d:lst name="CanIfHrhCfg" type="MAP">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                        <d:ctr name="HOH_0_EcuTestNode" type="IDENTIFIABLE">
+                          <d:var name="CanIfHrhSoftwareFilter" type="BOOLEAN" 
+                                 value="false"/>
+                          <d:ref name="CanIfHrhCanCtrlIdRef" type="REFERENCE" 
+                                 value="ASPath:/CanIf/CanIf/CanIfCtrlDrvCfg/EcuTestNode"/>
+                          <d:ref name="CanIfHrhCanHandleTypeRef" 
+                                 type="REFERENCE" >
+                            <a:a name="ENABLE" value="false"/>
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:ref>
+                          <d:ref name="CanIfHrhIdSymRef" type="REFERENCE" 
+                                 value="ASPath:/Can/Can/CanConfigSet/HOH_0_EcuTestNode"/>
+                          <d:lst name="CanIfHrhRangeCfg" type="MAP"/>
+                        </d:ctr>
+                      </d:lst>
+                      <d:lst name="CanIfHthCfg" type="MAP">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                        <d:ctr name="CAN_A_32HOH_0_EcuTestNode" 
+                               type="IDENTIFIABLE">
+                          <d:ref name="CanIfHthCanCtrlIdRef" type="REFERENCE" 
+                                 value="ASPath:/CanIf/CanIf/CanIfCtrlDrvCfg/EcuTestNode"/>
+                          <d:ref name="CanIfHthCanHandleTypeRef" 
+                                 type="REFERENCE" >
+                            <a:a name="ENABLE" value="false"/>
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:ref>
+                          <d:ref name="CanIfHthIdSymRef" type="REFERENCE" 
+                                 value="ASPath:/Can/Can/CanConfigSet/CAN_A_32HOH_0_EcuTestNode"/>
+                        </d:ctr>
+                      </d:lst>
+                    </d:ctr>
+                  </d:lst>
+                  <d:lst name="CanIfRxPduCfg" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                    <d:ctr name="Pdu_CounterIn_256R" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      <d:var name="CanIfRxPduCanId" type="INTEGER" value="256">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:var name="CanIfRxPduCanIdType" type="ENUMERATION" 
+                             value="STANDARD_NO_FD_CAN">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:var name="CanIfRxPduCanIdMask" type="INTEGER" 
+                             value="536870911">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfRxPduDlc" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfRxPduId" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO">
+                          <a:v>@DEF</a:v>
+                          <a:v>@CALC</a:v>
+                        </a:a>
+                      </d:var>
+                      <d:var name="CanIfRxPduReadData" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfRxPduReadNotifyStatus" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfRxPduUserRxIndicationName" 
+                             type="FUNCTION-NAME" value="">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ref name="CanIfRxPduBswSchExclAreaIdRef" 
+                             type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:lst name="CanIfRxPduHrhIdRef">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                        <d:ref type="REFERENCE" 
+                               value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfInitHohCfg/HOH_0_EcuTestNode"/>
+                      </d:lst>
+                      <d:var name="CanIfRxPduUserRxIndicationUL" 
+                             type="ENUMERATION" value="PDUR">
+                        <a:a name="ENABLE" value="true"/>
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:ref name="CanIfRxPduRef" type="REFERENCE" 
+                             value="ASPath:/EcuC/EcuC/EcucPduCollection/Pdu_CounterIn_256R">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:ref>
+                      <d:ctr name="CanIfRxPduCanIdRange" type="IDENTIFIABLE">
+                        <a:a name="ENABLE" value="false"/>
+                        <d:var name="CanIfRxPduCanIdRangeLowerCanId" 
+                               type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="CanIfRxPduCanIdRangeUpperCanId" 
+                               type="INTEGER" value="1">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:var name="CanIfRxPduTargetPduID" type="INTEGER" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ref name="CanIfRxPduUpperLayerRef" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ctr name="CanIfTTRxFrameTriggering" 
+                             type="IDENTIFIABLE">
+                        <d:var name="CanTTRxJoblistTimeMark" type="INTEGER" >
+                          <a:a name="ENABLE" value="false"/>
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:ref name="CanIfTTRxHwObjectTriggerIdRef" 
+                               type="REFERENCE" >
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:ref>
+                      </d:ctr>
+                    </d:ctr>
+                  </d:lst>
+                  <d:lst name="CanIfTxPduCfg" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                    <d:ctr name="Pdu_CounterOut_272T" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      <d:var name="CanIfTxPduCanId" type="INTEGER" value="272">
+                        <a:a name="ENABLE" value="true"/>
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduCanIdType" type="ENUMERATION" 
+                             value="STANDARD_CAN">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduCanIdMask" type="INTEGER" 
+                             value="3758096383">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduId" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO">
+                          <a:v>@DEF</a:v>
+                          <a:v>@CALC</a:v>
+                        </a:a>
+                      </d:var>
+                      <d:var name="CanIfTxPduPnFilterPdu" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduReadNotifyStatus" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduTruncation" type="BOOLEAN" 
+                             value="true">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduTruncateToFrame" type="BOOLEAN" 
+                             value="true">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduType" type="ENUMERATION" 
+                             value="STATIC">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduUserTxConfirmationName" 
+                             type="FUNCTION-NAME" value="">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ref name="CanIfTxPduBswSchExclAreaIdRef" 
+                             type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:var name="CanIfTxPduSourcePduID" type="INTEGER" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ref name="CanIfTxPduUpperLayerRef" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="CanIfTxPduBufferRef" type="REFERENCE" 
+                             value="ASPath:/CanIf/CanIf/CanIfInitCfg/CAN_A_32HOH_0_EcuTestNode"/>
+                      <d:var name="CanIfTxPduDlc" type="INTEGER" value="1">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:var name="CanIfTxPduUserTxConfirmationUL" 
+                             type="ENUMERATION" value="PDUR">
+                        <a:a name="ENABLE" value="true"/>
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:var>
+                      <d:ref name="CanIfTxPduRef" type="REFERENCE" 
+                             value="ASPath:/EcuC/EcuC/EcucPduCollection/Pdu_CounterOut_272T">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:ref>
+                      <d:ctr name="CanIfTTTxFrameTriggering" 
+                             type="IDENTIFIABLE">
+                        <d:var name="CanIfTTTxJoblistTimeMark" type="INTEGER" >
+                          <a:a name="ENABLE" value="false"/>
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:ref name="CanIfTTTxHwObjectTriggerIdRef" 
+                               type="REFERENCE" >
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:ref>
+                      </d:ctr>
+                    </d:ctr>
+                  </d:lst>
+                  <d:lst name="CanIfBufferCfg" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                    <d:ctr name="CAN_A_32HOH_0_EcuTestNode" type="IDENTIFIABLE">
+                      <d:var name="CanIfBufferSize" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:lst name="CanIfBufferHthRef">
+                        <d:ref type="REFERENCE" 
+                               value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfInitHohCfg/CAN_A_32HOH_0_EcuTestNode"/>
+                      </d:lst>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="CanIfDispatchCfg" type="IDENTIFIABLE">
+                <d:var name="CanIfDispatchUserCtrlBusOffName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserCtrlBusOffUL" type="ENUMERATION" 
+                       value="CAN_SM">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserCtrlModeIndicationName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserCtrlModeIndicationUL" 
+                       type="ENUMERATION" value="CAN_SM">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserCheckTrcvWakeFlagIndicationName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserCheckTrcvWakeFlagIndicationUL" 
+                       type="ENUMERATION" value="CAN_SM">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserClearTrcvWufFlagIndicationName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserClearTrcvWufFlagIndicationUL" 
+                       type="ENUMERATION" value="CAN_SM">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserConfirmPnAvailabilityName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserConfirmPnAvailabilityUL" 
+                       type="ENUMERATION" value="CAN_SM">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserTrcvModeIndicationName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserTrcvModeIndicationUL" 
+                       type="ENUMERATION" value="CAN_SM">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserValidateWakeupEventName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserValidateWakeupEventUL" 
+                       type="ENUMERATION" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfTranslateTxCanIdFunc" type="FUNCTION-NAME" 
+                       value="CanIf_TranslateTxCanId">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfTranslateRxCanIdFunc" type="FUNCTION-NAME" 
+                       value="CanIf_TranslateRxCanId">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserSetWakeupEventName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDispatchUserSetWakeupEventUL" 
+                       type="ENUMERATION" value="ECUM">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="CanIfCtrlDrvCfg" type="MAP">
+                <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                <d:ctr name="CanIfCtrlDrvCfg" type="IDENTIFIABLE">
+                  <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                  <d:var name="CanIfCtrlDrvTxCancellation" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:ref name="CanIfCtrlDrvNameRef" type="REFERENCE" 
+                         value="ASPath:/Can/Can/CanGeneral">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                  </d:ref>
+                  <d:ref name="CanIfCtrlDrvInitHohConfigRef" type="REFERENCE" 
+                         value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfInitHohCfg">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                  </d:ref>
+                  <d:lst name="CanIfCtrlCfg" type="MAP">
+                    <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                    <d:ctr name="EcuTestNode" type="IDENTIFIABLE">
+                      <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      <d:var name="CanIfCtrlId" type="INTEGER" value="0">
+                        <a:a name="IMPORTER_INFO" value="@CALC"/>
+                      </d:var>
+                      <d:var name="CanIfCtrlWakeupSupport" type="BOOLEAN" 
+                             value="false">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ref name="CanIfCtrlCanCtrlRef" type="REFERENCE" 
+                             value="ASPath:/Can/Can/CanConfigSet/EcuTestNode">
+                        <a:a name="IMPORTER_INFO" value="ImportEcuConfig"/>
+                      </d:ref>
+                      <d:var name="CanIfCtrlMaxRxNotifyPdus" type="INTEGER" 
+                             value="64">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:var name="CanIfCtrlMaxTxNotifyPdus" type="INTEGER" 
+                             value="64">
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:var>
+                      <d:ref name="CanIfCtrlWakeupSourceInRef" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="CanIfCtrlWakeupSourceOutRef" 
+                             type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                    </d:ctr>
+                  </d:lst>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="CanIfPrivateCfg" type="IDENTIFIABLE">
+                <d:var name="CanIfPrivateDlcCheck" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPrivateSoftwareFilterType" type="ENUMERATION" 
+                       value="BINARY">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfSupportTTCAN" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:ctr name="CanIfTTGeneral" type="IDENTIFIABLE">
+                  <d:var name="CanIfTTJoblist" type="BOOLEAN" value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CanIfTTMaxIsrDelay" type="INTEGER" >
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:ctr>
+              <d:ctr name="CanIfPublicCfg" type="IDENTIFIABLE">
+                <d:var name="CanIfSetBaudrateApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicCancelTransmitSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfBusMirroringSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:lst name="CanIfPublicCddHeaderFile"/>
+                <d:var name="CanIfPublicChangeBaudrateSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicDevErrorDetect" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicHandleTypeEnum" type="ENUMERATION" 
+                       value="UINT8">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMultipleDrvSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicNumberOfCanHwUnits" type="INTEGER" 
+                       value="1">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicPnSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicReadRxPduDataApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicReadRxPduNotifyStatusApi" 
+                       type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicReadTxPduNotifyStatusApi" 
+                       type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicSetDynamicTxIdApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfMetaDataSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicTxBuffering" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicTxConfirmPollingSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDetReportRuntimeError" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfDecoupledProcessingSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfMultiCoreSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:lst name="CanIfRxProcessing" type="MAP"/>
+                <d:lst name="CanIfTxProcessing" type="MAP"/>
+                <d:var name="CanIfRelocatablePbcfgEnable" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfSoftwareFilteringSupport" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfCanDriverCompatibility" type="ENUMERATION" 
+                       value="ASR422"/>
+                <d:var name="CanIfPublicCanIdTypeEnum" type="ENUMERATION" 
+                       value="UINT32">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicSingleCtrlOpt" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicHohTranslationOpt" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicCtrlWakeupSupport" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="CanIfPublicTrcvWakeupSupport" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicRangeReceptionSupport" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicTrcvSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="CanIfPublicMaxCtrl" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@CALC</a:v>
+                    <a:v>@DEF</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="CanIfPublicMaxTxBuffers" type="INTEGER" value="64">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMaxTxBufferSize" type="INTEGER" 
+                       value="512">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMaxTxPdus" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@DEF</a:v>
+                    <a:v>@CALC</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="CanIfPublicMaxHths" type="INTEGER" value="16">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMaxRxNotifyPdus" type="INTEGER" 
+                       value="64">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMaxTxNotifyPdus" type="INTEGER" 
+                       value="64">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMaxRxBuffer" type="INTEGER" value="72">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicMaxDynTxPdus" type="INTEGER" value="8">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfSingleCanTrcvAPIInfixEnable" type="BOOLEAN" 
+                       value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfTxOfflineActiveSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfHookOnReceptionSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfValidateWakeupOnStartedCtrlOnly" 
+                       type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicVersionInfoApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicWakeupCheckValidSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfPublicWakeupCheckValidByNM" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="CanIfTrcvDrvCfg" type="MAP"/>
+              <d:ctr name="CanIfDecoupledMeasurementSupport" 
+                     type="IDENTIFIABLE">
+                <d:var name="CanIfRxDecoupledMeasurementSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfTxDecoupledMeasurementSupport" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfNumberOfRxPdusExceedingQueueApiName" 
+                       type="FUNCTION-NAME" value="">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfNumberOfEnqueuedRxPdusApiName" 
+                       type="FUNCTION-NAME" value="">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfNumberOfTxPdusExceedingQueueApiName" 
+                       type="FUNCTION-NAME" value="">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfNumberOfEnqueuedTxPdusApiName" 
+                       type="FUNCTION-NAME" value="">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:lst name="CanIfUpperLayerConfig" type="MAP">
+                <d:ctr name="PDUR" type="IDENTIFIABLE">
+                  <a:a name="IMPORTER_INFO" value="@REC"/>
+                  <d:var name="CanIfUpperLayerUseCanId" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@REC"/>
+                  </d:var>
+                  <d:var name="CanIfPublicTxConfResultSupport" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="CanIfTxPduUserTxConfirmationName" 
+                         type="FUNCTION-NAME" value="PduR_CanIfTxConfirmation">
+                    <a:a name="ENABLE" value="true"/>
+                    <a:a name="IMPORTER_INFO" value="@REC"/>
+                  </d:var>
+                  <d:var name="CanIfRxPduUserRxIndicationName" 
+                         type="FUNCTION-NAME" value="PduR_CanIfRxIndication">
+                    <a:a name="ENABLE" value="true"/>
+                    <a:a name="IMPORTER_INFO" value="@REC"/>
+                  </d:var>
+                  <d:var name="CanIfUserDlcErrorNotification" 
+                         type="FUNCTION-NAME" value="">
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@REC"/>
+                  </d:var>
+                  <d:var name="CanIfUserDlcPassedNotification" 
+                         type="FUNCTION-NAME" value="">
+                    <a:a name="ENABLE" value="false"/>
+                    <a:a name="IMPORTER_INFO" value="@REC"/>
+                  </d:var>
+                  <d:var name="CanIfUseCddHandleIds" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:lst>
+              <d:ctr name="CanIfMirroringSupport" type="IDENTIFIABLE">
+                <d:var name="CanIfMirrorToCDDReportingEnable" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfMirrorToCDDReportingFunctionName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfMirrorToCDDReportingHeader" type="STRING" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfCanTxErrorCounterSupported" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfTxErrorCounterValue" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfCanControllerErrorStateSupported" 
+                       type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfErrorStateValue" type="ENUMERATION" 
+                       value="CAN_ERRORSTATE_ACTIVE">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="TxMirrorBufferSize" type="INTEGER" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="TxMirrorNumTxPdus" type="INTEGER" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="CanIfHookOnRxSupport" type="IDENTIFIABLE">
+                <d:var name="CanIfHookOnReceptionHeader" type="STRING" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="CanIfHookOnReceptionFunctionName" 
+                       type="FUNCTION-NAME" >
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ArMajorVersion" type="INTEGER" value="5">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArMinorVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="6">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMinorVersion" type="INTEGER" value="10">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwPatchVersion" type="INTEGER" value="19">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ModuleId" type="INTEGER" value="60">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="Release" type="STRING" value="">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+              <d:ctr name="PublishedInformation" type="IDENTIFIABLE">
+                <d:var name="PbcfgMSupport" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>

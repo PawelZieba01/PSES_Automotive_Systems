@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memento version="1.0" lastmodified="Nov 24, 2023 10:32:27 PM">
+    <SystemSignalMappingWizard>
+        <__metadata>
+            <Group_Filter __expanded="true"/>
+            <DUMMY __expanded="true"/>
+            <SystemSignalMapping_ShowMappedDataElements __toggled="true"/>
+            <SystemSignalMapping_ShowUnmappedDataElements __toggled="true"/>
+            <Group_MainTable __expanded="true"/>
+            <Tree/>
+            <Group_AutoConnect __expanded="true"/>
+            <Table_AutoConnect __width="100 50 250 250 250 250" __visible="yyyyyy"/>
+            <Button_AutoConnect __toggled="false"/>
+        </__metadata>
+        <Table_AutoConnect/>
+    </SystemSignalMappingWizard>
+</memento>

@@ -1,0 +1,582 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr name="General">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/General"/>
+    <d:var name="Version" value="28.2.0"/>
+    <d:var name="ReleaseVersion" value="*">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="ModelExtenderCompatibility" value="TRUE"/>
+    <d:lst name="ModelExtender" type="MAP">
+      <d:ctr name="ModelEcuConfiguration"/>
+      <d:ctr name="SystemModel2"/>
+    </d:lst>
+    <d:var name="System" value="/CanSystem/CanSystem">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="EcuInstance" value="/CanSystem/ECUINSTANCES/EcuTestNode">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="ModuleConfigurations" type="MAP">
+      <d:ctr name="Atomics">
+        <d:var name="ModuleId" value="Atomics_TS_TxDxM1I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.15 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\Atomics.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Base">
+        <d:var name="ModuleId" value="Base_TS_TxDxM5I1R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="5.1.0 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\Base.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="BswM">
+        <d:var name="ModuleId" value="BswM_TS_TxDxM1I15R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.15.7 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\BswM.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Can">
+        <d:var name="ModuleId" value="Can_TS_T40D2M10I2R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.2 RTM_HF1"/>
+        <d:var name="ConfigurationFileURL" value="config\Can.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="CanIf">
+        <d:var name="ModuleId" value="CanIf_TS_TxDxM6I10R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="6.10.19 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\CanIf.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" value="CanIfRecConfigurationDflt"/>
+      </d:ctr>
+      <d:ctr name="CanSM">
+        <d:var name="ModuleId" value="CanSM_TS_TxDxM3I7R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="3.7.7 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\CanSM.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Com">
+        <d:var name="ModuleId" value="Com_TS_TxDxM6I3R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="6.3.51 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\Com.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" value="ComRecConfigurationStandard"/>
+      </d:ctr>
+      <d:ctr name="ComM">
+        <d:var name="ModuleId" value="ComM_TS_TxDxM5I19R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="5.19.8 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\ComM.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Compiler">
+        <d:var name="ModuleId" value="Compiler_TS_TxDxM1I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.9 B484613"/>
+        <d:var name="ConfigurationFileURL" value="config\Compiler.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Dem">
+        <d:var name="ModuleId" value="Dem_TS_TxDxM6I4R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="6.4.3 B478580"/>
+        <d:var name="ConfigurationFileURL" value="config\Dem.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" value="DemRecConfigurationDtcGroupsOpCycle"/>
+      </d:ctr>
+      <d:ctr name="Det">
+        <d:var name="ModuleId" value="Det_TS_TxDxM6I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="6.5.7 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\Det.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Dio">
+        <d:var name="ModuleId" value="Dio_TS_T40D2M10I2R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.2 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Dio.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="EcuC">
+        <d:var name="ModuleId" value="EcuC_TS_TxDxM5I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="5.0.22 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\EcuC.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="EcuM">
+        <d:var name="ModuleId" value="EcuM_TS_TxDxM5I15R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="5.15.8 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\EcuM.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" value="EcuMRecConfiguration"/>
+      </d:ctr>
+      <d:ctr name="Make">
+        <d:var name="ModuleId" value="Make_TS_TxDxM4I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="4.0.28 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\Make.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="McalExt">
+        <d:var name="ModuleId" value="McalExt_TS_T40D2M1I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.0 B484613"/>
+        <d:var name="ConfigurationFileURL" value="config\McalExt.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Mcu">
+        <d:var name="ModuleId" value="Mcu_TS_T40D2M10I2R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.2 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Mcu.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" value="McuPreConfiguration"/>
+        <d:var name="RecConfig" value="McuRecConfigurationStandard"/>
+      </d:ctr>
+      <d:ctr name="MemMap">
+        <d:var name="ModuleId" value="MemMap_TS_TxDxM1I3R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.3.10 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\MemMap.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Os">
+        <d:var name="ModuleId" value="Os_TS_T40D2M6I0R0_AS403"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="6.0.322 0000"/>
+        <d:var name="ConfigurationFileURL" value="config\Os.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="PbcfgM">
+        <d:var name="ModuleId" value="PbcfgM_TS_TxDxM1I2R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.2.22 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\PbcfgM.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="PduR">
+        <d:var name="ModuleId" value="PduR_TS_TxDxM5I3R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="5.3.47 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\PduR.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" value="PduRRecConfigurationCanEcu"/>
+      </d:ctr>
+      <d:ctr name="Platforms">
+        <d:var name="ModuleId" value="Platforms_TS_T40DxM4I0R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="4.0.1 B477911"/>
+        <d:var name="ConfigurationFileURL" value="config\Platforms.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Port">
+        <d:var name="ModuleId" value="Port_TS_T40D2M10I2R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.2 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Port.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Resource">
+        <d:var name="ModuleId" value="Resource_TS_T40D2M10I2R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.2 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Resource.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Rte">
+        <d:var name="ModuleId" value="Rte_TS_TxDxM6I6R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="6.6.3 B466224"/>
+        <d:var name="ConfigurationFileURL" value="config\Rte.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+    </d:lst>
+    <d:lst name="AutoconfigureTriggers" type="MAP">
+      <d:ctr name="A2LGenerator">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="AutoCalc">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="autoConnectSWC">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="AutoHandleId">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="autoMapSignals">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="CanAs.AutoConfigure">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="CodeGen">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="EcuExtractCreator">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="EventToTaskMapping">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="ImportEcuConfig">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="MultiTask">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="MultiTask_RunFullImport">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="MultiTask_UpdateBswDescriptions">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="plugin.SelectableWizard.Autosar.wizard">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="PreConfig_Autoconfiguration">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="ProjectCodeTemplate">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="Scriptor_Trigger">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="SplittableExp">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="SplittableImp">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="SvcAs_Trigger">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="SwitchPostBuildVariant">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="VariantHandlingWizard">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+      <d:ctr name="XSLTransformer">
+        <d:var name="Autoconfigure" value="TRUE"/>
+      </d:ctr>
+    </d:lst>
+    <d:lst name="WizardConfigurations" type="MAP"/>
+  </d:ctr>
+  <d:ctr name="ImporterExporterAdditions">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ImporterExporterAdditions"/>
+    <d:var name="Version_AutosarImporter" value="2">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="Version_SystemDescriptionImporter" value="4">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="Version_SystemDescriptionExporter" value="1">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+  </d:ctr>
+  <d:ctr name="ECUCNature">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ECUCNature"/>
+    <d:var name="ReleaseVersion" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="ECUId" value="ECU"/>
+    <d:var name="ConfigurationPath" value="config"/>
+    <d:var name="GenerationPath" value="output/generated"/>
+    <d:var name="UnixLF" value="FALSE"/>
+    <d:var name="UnixLFConfigData" value="FALSE"/>
+    <d:var name="DisableMinListChildCreation" value="TRUE"/>
+    <d:var name="ProjectSpecificSettings" value="TRUE"/>
+    <d:var name="ProjectSpecificSettingsConfigurationProject" value="TRUE"/>
+    <d:var name="Target" value="CORTEXM"/>
+    <d:var name="Derivate" value="S32K14X"/>
+    <d:var name="DefaultPreConfiguration" value="&lt;Use Module Default&gt;"/>
+    <d:var name="DefaultRecConfiguration" value="&lt;Use Module Default&gt;"/>
+    <d:ctr name="ConfigTime">
+      <a:a name="ENABLE" value="false"/>
+      <d:var name="PublishedInformation" value="FALSE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+      <d:var name="PreCompile" value="TRUE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+      <d:var name="Link" value="TRUE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+      <d:var name="PostBuild" value="TRUE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+    </d:ctr>
+  </d:ctr>
+
+</datamodel>

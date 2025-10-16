@@ -1,0 +1,26 @@
+
+entry &binaryFile
+if "&binaryFile"==""
+(
+&binaryFile="..\..\..\output\bin\*.elf"
+)
+
+
+SYStem.RESet
+SYStem.CPU S32K146
+SYStem.Up
+
+DO ~~/demo/arm/flash/s32k.cmm PREPAREONLY
+
+;	S32K144 Flash Regions:
+;	PFlashSize=0x80000	=	512 KB
+;	DFlashSize=0x10000	=	64 KB
+
+FLASH.ReProgram ALL /Erase
+Data.LOAD.Elf "&binaryFile"
+FLASH.ReProgram OFF
+SYStem.Up
+
+List.auto
+
+ENDDO

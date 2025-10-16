@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memento version="1.0" lastmodified="Nov 24, 2023 10:38:06 PM">
+    <ConnectionWizard>
+        <Table_AutoConnect/>
+        <__metadata>
+            <Group_Filter __expanded="true"/>
+            <ConnectionEditor_Group_Filter_Checkbox1 __expanded="true"/>
+            <DUMMY __expanded="true"/>
+            <ConnectionEditor_ShowProvidePorts __toggled="true"/>
+            <ConnectionEditor_ShowRequesterPorts __toggled="true"/>
+            <ConnectionEditor_ShowProviderRequesterPorts __toggled="true"/>
+            <ConnectionEditor_ShowServicePorts __toggled="true"/>
+            <ConnectionEditor_Group_Filter_Checkbox2 __expanded="true"/>
+            <ConnectionEditor_ShowConnectedPorts __toggled="true"/>
+            <ConnectionEditor_ShowUnconnectedPorts __toggled="true"/>
+            <ConnectionEditor_ShowCSPorts __toggled="true"/>
+            <ConnectionEditor_ShowSRPorts __toggled="true"/>
+            <ConnectionEditor_Group_Filter_Checkbox3 __expanded="true"/>
+            <ConnectionEditor_ShowParameterPorts __toggled="true"/>
+            <ConnectionEditor_ShowTriggerPorts __toggled="true"/>
+            <ConnectionEditor_ShowMSPorts __toggled="true"/>
+            <ConnectionEditor_ShowNvDataPorts __toggled="true"/>
+            <Group_MainTable __expanded="true"/>
+            <Tree/>
+            <Group_AutoConnect __expanded="false"/>
+            <Table_AutoConnect __width="100 50 250 250 250" __visible="yyyyy"/>
+            <Button_AutoConnect __toggled="false"/>
+            <ConnectionEditor_AllowIncompatiblePortsConnection_TreeTable __toggled="true"/>
+        </__metadata>
+    </ConnectionWizard>
+</memento>

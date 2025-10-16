@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-and-run-tests",
+            "type": "shell",
+            "command": "gcc -o ${workspaceFolder}/build/test_runner ${workspaceFolder}/source/tests/UT_SWC_ModifyEcho.c -I${workspaceFolder}/source/tests -I${workspaceFolder}/source/tests/acutest -I${workspaceFolder}/source/tests/fff -Wall -Wextra; if ($?) { ${workspaceFolder}/build/test_runner }",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+    ]
+}

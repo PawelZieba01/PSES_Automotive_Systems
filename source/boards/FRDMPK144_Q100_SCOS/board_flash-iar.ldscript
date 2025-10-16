@@ -1,0 +1,66 @@
+/* board_flash-iar.ldscript
+ *
+ * Linker script memory definitions for IAR binutils.
+ *
+ * (c) Elektrobit Automotive GmbH
+ *
+ * $Id: board_flash-iar.ldscript 28407 2018-03-13 07:53:02Z aniv261689 $
+*/
+
+/*	Memory types and sizes for S32K144:
+ *	SRAM_L			= 0x8000;	32	KB	(Low-order, executable)
+ *	SRAM_U			= 0x7000;	28	KB	(High-order, for data)
+ *	FlexRAM			= 0x1000;	4	KB
+ *	FLSH_PROG		= 0x80000;	512	KB
+ *	FLSH_FlexNVM	= 0x10000;	64	KB
+*/
+
+/*	S32K144 memory is split into 2 regions:
+ *	0x00000000 - 0x1FFFFFFF	:	Low-order addresses (access through the code bus)
+ *	0x20000000 - 0xFFFFFFFF	:	High-order addresses (access through the system bus)
+ *	All code should be placed to the low-order addresses
+ *
+ *	SRAM_L	lies in low-order address space (SRAM_L must end at 0x1FFFFFFF)
+ *	SRAM_U	lies in high-order address space (SRAM_U must start at 0x20000000)
+ *	SRAM_L and SRAM_U are contiguous!
+*/
+
+/* Declare the memory space Mem of 4 Gigabytes */
+define memory Mem with size = 4G;
+
+/* Define memory regions in memory space 'Mem' */
+define region empty		= Mem:[from 0x00000000 size 0x0];		/* empty region					*/
+define region reset		= Mem:[from 0x00000000 size 0x100];		/* reset-vector					*/
+/* Gap @ 0x00000400:	                                   		 * reserved and not writable!	*/
+define region exctable	= Mem:[from 0x00000800 size 0x3800];	/* exception (+interrupt) table	*/
+define region rom 		= Mem:[from 0x00004000 size 0x7C000];	/* the rest of FLASH memory		*/
+define region ram 		= Mem:[from 0x20000000 size 0x7000];	/* High-order RAM (system-bus)	*/
+
+
+/* Definition of the 'reset_vector' block */
+define block reset_vector with fixed order, alignment = 256
+{
+	section ".rodata" object "board_reset_vector.o",
+	section ".rodata*" object "board_reset_vector.o"
+};
+
+keep 
+{
+	section ".rodata" object "board_reset_vector.o",
+	section ".rodata*" object "board_reset_vector.o"
+};
+
+do not initialize
+{
+	section .bss*
+};
+
+place at start of reset { block reset_vector };
+
+/* Symbols for Memory Protection: Global RAM region */
+define exported symbol __GLBL_RAM_END	= end(ram);
+define exported symbol __GLBL_RAM_START	= start(ram);
+
+/* Symbols for Memory Protection: Global ROM region */
+define exported symbol __GLBL_ROM_START	= start(reset);
+define exported symbol __GLBL_ROM_END	= end(rom);

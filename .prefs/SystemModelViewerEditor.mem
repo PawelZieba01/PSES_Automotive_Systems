@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<memento version="1.0" lastmodified="Nov 24, 2023 10:34:39 PM">
+    <SystemModelViewerEditor AllEntityTypes="&#x9;DataConstr&#x9;ClientServerInterface&#x9;SenderReceiverInterface&#x9;Unit&#x9;ServiceSwComponentType&#x9;System&#x9;FlatMap&#x9;ISignal&#x9;SwBaseType&#x9;BswModuleDescription&#x9;BswImplementation&#x9;DataTypeMappingSet&#x9;CompuMethod&#x9;SwcBswMapping&#x9;CompositionSwComponentType&#x9;ConstantSpecification&#x9;ModeDeclarationGroup&#x9;ImplementationDataType&#x9;SwcImplementation&#x9;ModeSwitchInterface&#x9;ApplicationSwComponentType&#x9;EcuInstance&#x9;EcuAbstractionSwComponentType&#x9;ISignalIPdu&#x9;CanCluster&#x9;CanFrame&#x9;SwAddrMethod&#x9;SystemSignal&#x9;BswModuleEntry">
+        <__metadata>
+            <PackageEditor_Grp_1 __expanded="true"/>
+            <PackageEditor_Grp_1_1 __expanded="true"/>
+            <Label1/>
+            <PackageFilter_ElemTypeCombo/>
+            <Label2/>
+            <FilterText/>
+            <PackageTree __width="286 201" __visible="yy"/>
+            <EntityTree __width="218 50 50" __visible="yyy"/>
+        </__metadata>
+        <Table_AutoConnect/>
+    </SystemModelViewerEditor>
+</memento>
