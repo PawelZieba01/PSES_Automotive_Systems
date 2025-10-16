@@ -1,14 +1,8 @@
-# Dokumentacja Projektu
+## PSES AGH 2025
 
-Dokumentacja: `Calc Documentation.ink` lub `./html/index.html
-Pokrycie kodu testami: `Lib_Calc.c.gcov` oraz `Calc_Ab.c.gcov`
-Raport Cppcheck: `cppcheck_report.txt`
- 
-# Jak używać?
+### Organizacja kodu
+Kod z poszczególnych laboratoriów znajduje się na odpowiednich branchach:
+- [LAB1](../../tree/LAB1) - kod z pierwszych zajęć laboratoryjnych
+- [LAB2](../../tree/LAB2) - kod z drugich zajęć laboratoryjnych
+- [LAB3](../../tree/LAB3) - kod z trzecich zajęć laboratoryjnych
 
-1. Otwórz plik **`Kod.code-workspace`** w **Visual Studio Code**.  
-2. Kompilację, uruchamianie testów, sprawdzanie pokrycia kodu, analizę statyczną (**Cppcheck**) oraz generowanie dokumentacji (**Doxygen**) wykonuje się za pomocą **zadań (tasks)** w VS Code.  
-   Aby je uruchomić:  
-   - naciśnij **Ctrl + Shift + P**,  
-   - wybierz **„Run Task”**,  
-   - a następnie wskaż odpowiednie zadanie z listy.

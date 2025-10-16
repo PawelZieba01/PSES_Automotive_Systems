@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "std_types.h": "c",
-        "lib_calc.h": "c"
-    }
-}
