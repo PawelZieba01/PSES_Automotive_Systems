@@ -28,28 +28,28 @@ FUNC(void, RTE_APPL_CODE) SWC_ModifyEcho_ModifyEcho(void)
   /* Get InputValue from bus system */
   (void) Rte_Read_R_NewCounterIn_CounterValue(&inputValue);
 
-  if( inputValue >= 0xF0 )
-  {
+  if (inputValue >= 0xF1U && inputValue <= 0xFFU) {
   /* this was an additional request that will be handled otherwise
      don't use as counter value  */
-    (void) Rte_Send_P_SpecialRequest_EventMessage(inputValue);
+    (void) Rte_Send_P_SpecialRequest_EventMessage(inputValue & 0x0FU);
 
     /* write special command as output,
        Rte_IWrite must be always be called in this
        runnable otherwise 0 is send (implicit communication) */
-    Rte_IWrite_ModifyEcho_P_EchoOut_CounterValue(inputValue);
+    Rte_IWrite_ModifyEcho_P_EchoOut_CounterValue(inputValue & 0x0FU);
 
-  }
-  else
-  {
-    /* calc output value using Server function */
-    (void) Rte_Call_R_EchoResult_SetCounterAndAdd(inputValue,&echoValue);
+  } else if (inputValue > 0x00U && inputValue <= 0xF0U) {
+    /* decrement input value by 1 */
+    echoValue = inputValue - 1U;
 
     /* write echo value as output */
     Rte_IWrite_ModifyEcho_P_EchoOut_CounterValue(echoValue);
 
+  } else { // input is 0x00
+    (void) Rte_Read_R_EchoResult_CounterValue(&echoValue);
+    /* write echo value as output */
+    Rte_IWrite_ModifyEcho_P_EchoOut_CounterValue(echoValue);
   }
-
 }
 
 #define SWC_ModifyEcho_STOP_SEC_CODE

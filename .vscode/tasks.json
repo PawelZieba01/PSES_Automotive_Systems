@@ -4,7 +4,7 @@
         {
             "label": "build-and-run-tests",
             "type": "shell",
-            "command": "gcc -o ${workspaceFolder}/build/test_runner ${workspaceFolder}/source/tests/UT_SWC_ModifyEcho.c -I${workspaceFolder}/source/tests -I${workspaceFolder}/source/tests/acutest -I${workspaceFolder}/source/tests/fff -Wall -Wextra; if ($?) { ${workspaceFolder}/build/test_runner }",
+            "command": "gcc -o ${workspaceFolder}/build/test_runner ${workspaceFolder}/source/tests/UT_SWC_ModifyEcho.c -I${workspaceFolder}/source/tests -I${workspaceFolder}/source/tests/common -I${workspaceFolder}/source/tests/mocks -I${workspaceFolder}/source/tests/acutest -I${workspaceFolder}/source/tests/fff -Wall -Wextra; if ($?) { ${workspaceFolder}/build/test_runner }",
             "group": {
                 "kind": "test",
                 "isDefault": true
