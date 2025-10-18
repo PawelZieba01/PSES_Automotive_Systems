@@ -27,6 +27,20 @@
             "presentation": {
                 "reveal": "always"
             }
+        },
+
+        {
+            "label": "build-and-run-UT_IoHwAbs",
+            "type": "shell",
+            "command": "gcc -o ${workspaceFolder}/build/test_runner_UT_IoHwAbs ${workspaceFolder}/source/tests/UT_SWC_IoHwAbs.c -I${workspaceFolder}/source/tests -I${workspaceFolder}/source/tests/common -I${workspaceFolder}/source/tests/mocks -I${workspaceFolder}/source/tests/acutest -I${workspaceFolder}/source/tests/fff -Wall -Wextra; if ($?) { ${workspaceFolder}/build/test_runner_UT_IoHwAbs }",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "presentation": {
+                "reveal": "always"
+            }
         }
     ]
 }

@@ -48,6 +48,9 @@ Std_ReturnType Rte_Call_PS_PersistentCounterValue_SetRamBlockStatus(boolean stat
 Std_ReturnType Rte_Receive_R_SpecialHandling_EventMessage(uint8* data);
 Std_ReturnType Rte_Write_P_CounterOut_CounterValue(uint8 val);
 
+/* EchoCalc */
+Std_ReturnType Rte_Write_P_EchoCalc_CounterValue(uint8 val);
+
 /* Client-server and other calls */
 Std_ReturnType Rte_Call_R_CyclicCounterDet_ReportError(uint8 a, uint8 b, uint8 c);
 Std_ReturnType Rte_Call_R_MyLED_SetDiscreteValue(uint8 val);

@@ -17,14 +17,8 @@
 
 #include "Rte_SWC_IoHwAbs.h"
 
-#ifdef _X86_
-#include <stdio.h>
-#include <Os.h>
-#define MY_LED_CYCLIC 0U
-#define Dio_ChannelType uint32
-#else
 #include "Dio.h"
-#endif
+
 
 
 #define SWC_IoHwAbs_START_SEC_VAR_UNSPECIFIED
@@ -41,17 +35,24 @@ STATIC Dio_ChannelType SetPortArgToChannel[1] = {DioConf_DioChannel_MY_LED_CYCLI
 
 FUNC(void, RTE_APPL_CODE) SWC_IoHwAbs_SetDiscreteValue (uint32 val0, uint32 value)
 {
-#ifdef _X86_
-  {
-      os_intstatus_t intValue = OS_WINDOWSGoingToUseWindowsService();
-      /* Print Dio channel */
-      printf("Dio channel %d: %d\n",SetPortArgToChannel[val0], value);
-      OS_WINDOWSFinishedUsingWindowsService(intValue);
-  }
-#else
   /* write to Dio channel */
   Dio_WriteChannel(SetPortArgToChannel[val0], (Dio_LevelType) value);
-#endif
+}
+
+
+FUNC(void, RTE_APPL_CODE) SWC_IoHwAbs_UpdateLED(void)
+{
+    uint32 P_MyLed = 0U;
+
+    /* Odczyt sygnału z RTE (przykład) */
+    (void)Rte_Read_P_MyLed(&P_MyLed);  
+
+    /* Włączenie/wyłączenie diody przez DIO */
+    if (P_MyLed != 0U) {
+        SWC_IoHwAbs_SetDiscreteValue(0, 1U); /* LED ON */
+    } else {
+        SWC_IoHwAbs_SetDiscreteValue(0, 0U); /* LED OFF */
+    }
 }
 
 #define SWC_IoHwAbs_STOP_SEC_CODE

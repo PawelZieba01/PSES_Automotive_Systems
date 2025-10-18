@@ -30,6 +30,27 @@
 #define SWC_CyclicCounter_START_SEC_CODE
 #include "SWC_CyclicCounter_MemMap.h"
 
+static void IncrementCounter(uint8* counterValue)
+{
+  if ((*counterValue) == 0x0FU) {
+      *counterValue = 0U;
+  } else {
+      (*counterValue)++;
+  }
+   
+}
+
+static void DecrementCounter(uint8* counterValue)
+{
+  if ((*counterValue) == 0x00U) {
+      *counterValue = 0x0FU;
+  } else {
+      (*counterValue)--;
+  }
+}
+
+
+
 FUNC(void, RTE_APPL_CODE) SWC_CyclicCounter_Init(void)
 {
   uint8 counterValue = 0U;
@@ -70,83 +91,77 @@ FUNC(void, RTE_APPL_CODE) SWC_CyclicCounter_Cyclic(void)
   uint8 counterValue = 0U;
   uint8 specialReceiveCommands[10] = { 0U };
   uint8 i = 0U;
-  boolean specialReceiveCommand = FALSE;
+  uint8 lastSpecialCommand = 0U;
+
+  counterValue = Rte_IrvRead_Cyclic_CurrentCounterValue();
 
   /* get all special commands received since last run */
   while(Rte_Receive_R_SpecialHandling_EventMessage(&specialReceiveCommands[0]) == E_OK)
   {
     if(i >= sizeof(specialReceiveCommands)) break;
+    if(specialReceiveCommands[0] == lastSpecialCommand) break;
+
+    lastSpecialCommand = specialReceiveCommands[0];
+
     /* save all requests in an temp array, can be used for later processing */
-    specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U]=specialReceiveCommands[0];
+    specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] = specialReceiveCommands[0];
+    
+    if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x01U) {
+      (void) Rte_Call_R_MyLED_SetDiscreteValue(1U);
+      counterValue = 0xF1U;
 
-    if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0xf1)
-    {
-#ifdef _X86_
-	  {
-	    os_intstatus_t intValue = OS_WINDOWSGoingToUseWindowsService();
-	    /* Print counter value to standard out */
-	    printf("Received trigger Det command 0xF1\n");
-	    OS_WINDOWSFinishedUsingWindowsService(intValue);
-	  }
-#endif
-      /* special command for generating pseudo det error */
-      (void) Rte_Call_R_CyclicCounterDet_ReportError(1U,2U,3U);
-      specialReceiveCommand = TRUE;
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x02U) {
+      (void) Rte_Call_R_MyLED_SetDiscreteValue(0U);
+      counterValue = 0xF2U;
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x03U) {
+      (void) Rte_Call_R_MyLED_SetDiscreteValue(1U);
+      counterValue = 0x01U;
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x04U) {
+      (void) Rte_Call_R_MyLED_SetDiscreteValue(0U);
+      counterValue = 0x02U;
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x05U) {
+      (void) Rte_Call_R_MyLED_SetDiscreteValue(1U);
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x06U) {
+      (void) Rte_Call_R_MyLED_SetDiscreteValue(0U);
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x07U) {
+      IncrementCounter(&counterValue);
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x08U) {
+      DecrementCounter(&counterValue);
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x09U) {
+      IncrementCounter(&counterValue);
+      IncrementCounter(&counterValue);
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x0AU) {
+      DecrementCounter(&counterValue);
+      DecrementCounter(&counterValue);
+
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x0BU) {
+      /* nothing to do */
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x0CU) {
+      /* nothing to do */
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x0DU) {
+      /* nothing to do */
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x0EU) {
+      /* nothing to do */
+    } else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0x0FU) {
+      counterValue = 0U;
     }
-    else if (specialReceiveCommands[sizeof(specialReceiveCommands) - i - 1U] == 0xff)
-    {
-#ifdef _X86_
-  	  {
-  	    os_intstatus_t intValue = OS_WINDOWSGoingToUseWindowsService();
-        /* Print counter value to standard out */
-        printf("Received shutdown command 0xFF\n");
-  	    OS_WINDOWSFinishedUsingWindowsService(intValue);
-  	  }
-#endif
-
-#ifdef BASE_COMM_ENABLED
-      /* notify BswM about a state change */
-      BswM_RequestMode(EB_INTGR_BSWM_SWC_CYCLIC, EB_INTGR_BSWM_SWC_CYCLIC_SHUTDOWN);
-#endif /* #ifdef BASE_COMM_ENABLED */
-
-      /* special command for shutdown */
-      (void) Rte_Call_UR_ComMUser_0_RequestComMode(NO_COMMUNICATION);
-      specialReceiveCommand = TRUE;
-    }
+      
     i++;
   }
-
-  /* don't handle counter values which are special commands */
-  if (!specialReceiveCommand)
-  {
-    /* Read counter value from inter-runnable variable */
-     counterValue = Rte_IrvRead_Cyclic_CurrentCounterValue();
-
-    /* toggle LED */
-    if ((counterValue % 2U) == 0U)
-    {
-      (void) Rte_Call_R_MyLED_SetDiscreteValue(1U);
-    }
-    else
-    {
-      (void) Rte_Call_R_MyLED_SetDiscreteValue(0U);
-    }
-
-    /* Write incremented counter value to inter-runnable variable */
-    Rte_IrvWrite_Cyclic_CurrentCounterValue(counterValue + 1U);
-
-#ifdef _X86_
-    {
-  	  os_intstatus_t intValue = OS_WINDOWSGoingToUseWindowsService();
-      /* Print counter value to standard out */
-      printf("Counter: %d\n", counterValue);
-  	  OS_WINDOWSFinishedUsingWindowsService(intValue);
-    }
-#endif
-
+  
     /* Write current counter value */
     (void) Rte_Write_P_CounterOut_CounterValue(counterValue);
-  }
+    (void) Rte_IrvWrite_Cyclic_CurrentCounterValue(counterValue);
+    /* Write current counter value to EchoCalc */
+    (void) Rte_Write_P_EchoCalc_CounterValue(counterValue);
 }
 
 
